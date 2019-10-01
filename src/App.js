@@ -1,10 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import LoadingBar from "react-redux-loading-bar";
 
 function App() {
   return (
-    <p>Starter code</p>
+    <div>
+      <LoadingBar />
+    </div>
   );
 }
 
