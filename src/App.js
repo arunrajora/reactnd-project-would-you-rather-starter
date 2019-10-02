@@ -3,7 +3,7 @@ import LoadingBar from "react-redux-loading-bar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 
-import { Login, PrivateRoute, Home, AddQuestion, Leaderboard, QuestionDetails } from "./containers";
+import { Login, PrivateRoute, Home, AddQuestion, Leaderboard, QuestionDetails, NavigationBar } from "./containers";
 import { NotFound } from "./components";
 
 import { loadInitialData } from "./redux/actions/shared";
@@ -20,6 +20,7 @@ function App() {
     <Router>
       <div>
         <LoadingBar />
+        <NavigationBar />
         <Switch>
           <PrivateRoute exact path="/" component={Home}/>
           <Route exact path="/login" component={Login} />

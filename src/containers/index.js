@@ -4,3 +4,4 @@ export { default as AddQuestion } from "./AddQuestion";
 export { default as Leaderboard } from "./Leaderboard";
 export { default as PrivateRoute } from "./PrivateRoute";
 export { default as QuestionDetails } from "./QuestionDetails";
+export { default as NavigationBar } from "./NavigationBar";

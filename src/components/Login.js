@@ -3,18 +3,21 @@ import { Redirect } from "react-router";
 
 const Login = ({ users, authenticateUser, isAuthenticated, location }) =>
   isAuthenticated ? (
-    <Redirect to={location.state || "/"}/>
+    <Redirect to={location.state || "/"} />
   ) : (
-    users.map(({ id, name, avatarURL }) => (
-      <button
-        key={id}
-        onClick={() => {
-          authenticateUser(id);
-        }}
-      >
-        {name}
-      </button>
-    ))
+    <div>
+      <h2>Login</h2>
+      {users.map(({ id, name, avatarURL }) => (
+        <button
+          key={id}
+          onClick={() => {
+            authenticateUser(id);
+          }}
+        >
+          {name}
+        </button>
+      ))}
+    </div>
   );
 
 export default Login;
