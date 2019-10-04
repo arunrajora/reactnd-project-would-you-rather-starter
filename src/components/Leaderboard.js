@@ -8,7 +8,7 @@ const Leaderboard = ({ users }) => (
     {users.map(({name, id, avatarURL, questionsAnswered, questionsCreated}, index) => (
       <tr key={id}>
         <td>{index+1}.</td>
-        <td><img src={avatarURL}/></td>
+        <td><img src={avatarURL} alt={name}/></td>
         <td>{name}</td>
         <td>{questionsAnswered} Answer{questionsAnswered > 1 && "s"}</td>
         <td>{questionsCreated} Question{questionsCreated > 1 && "s"}</td>

@@ -7,7 +7,7 @@ const authedUser = (state = null, action) => {
     case LOGOUT_USER:
       return null;
     default:
-      return null;
+      return state;
   }
 };
 

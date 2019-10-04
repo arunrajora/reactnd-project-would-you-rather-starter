@@ -2,5 +2,5 @@ export const AUTHENTCATE_USER = "AUTHENTCATE_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const LOAD_USERS = "LOAD_USERS";
 export const LOAD_QUESTIONS = "LOAD_QUESTIONS";
-export const ADD_QUESTION = "ADD_QUESTION";
+export const SAVE_QUESTION = "SAVE_QUESTION";
 export const SAVE_ANSWER = "SAVE_ANSWER";
