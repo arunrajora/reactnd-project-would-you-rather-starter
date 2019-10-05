@@ -5,3 +5,5 @@ export { default as Leaderboard } from "./Leaderboard";
 export { default as PrivateRoute } from "./PrivateRoute";
 export { default as QuestionDetails } from "./QuestionDetails";
 export { default as NavigationBar } from "./NavigationBar";
+export { default as AnsweredQuestion } from "./AnsweredQuestion";
+export { default as UnansweredQuestion } from "./UnansweredQuestion";

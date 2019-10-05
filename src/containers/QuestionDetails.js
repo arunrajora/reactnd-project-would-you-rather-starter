@@ -1,5 +1,17 @@
-import React from "react";
+import { connect } from 'react-redux'
 
-export default function(){
-  return null;
-}
+import { QuestionDetails } from '../components'
+
+const mapStateToProps = (
+  { users, authedUser },
+  {
+    match: {
+      params: { question_id: questionId }
+    }
+  }
+) => ({
+  questionId,
+  isAnswered: users[authedUser].answers.hasOwnProperty(questionId)
+})
+
+export default connect(mapStateToProps)(QuestionDetails)

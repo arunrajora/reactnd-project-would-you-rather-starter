@@ -1,7 +1,7 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
-import { LOAD_USERS, LOAD_QUESTIONS, SAVE_QUESTION } from "../actionsTypes";
-import { getUsers, getQuestions, saveQuestion } from "../../API";
+import { LOAD_USERS, LOAD_QUESTIONS, SAVE_QUESTION, SAVE_ANSWER } from "../actionsTypes";
+import { getUsers, getQuestions, saveQuestion, saveQuestionAnswer } from "../../API";
 
 const loadUsers = users => ({
   users,
@@ -16,6 +16,11 @@ const loadQuestions = questions => ({
 const addQuestion = question => ({
   question,
   type: SAVE_QUESTION
+});
+
+const addAnswer = question => ({
+  question,
+  type: SAVE_ANSWER
 });
 
 export const loadInitialData = () => dispatch => {
@@ -35,4 +40,14 @@ export const handleCreateQuestion = ({optionOneText, optionTwoText, authedUser})
     dispatch(addQuestion(question));
     dispatch(hideLoading());
   })
+}
+
+export const answerQuestion = ({authedUser, qid, answer}) => dispatch => {
+  dispatch(showLoading());
+  return saveQuestionAnswer({authedUser, qid, answer}).then(
+    () => {
+      dispatch(addAnswer({authedUser, qid, answer}));
+      dispatch(hideLoading());
+    }
+  );
 }

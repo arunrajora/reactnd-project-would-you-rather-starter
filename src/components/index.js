@@ -5,3 +5,6 @@ export { default as NavigationBar } from "./NavigationBar";
 export { default as Leaderboard } from "./Leaderboard";
 export { default as Home } from "./Home";
 export { default as AddQuestion } from "./AddQuestion";
+export { default as QuestionDetails } from "./QuestionDetails";
+export { default as AnsweredQuestion } from "./AnsweredQuestion";
+export { default as UnansweredQuestion } from "./UnansweredQuestion";
