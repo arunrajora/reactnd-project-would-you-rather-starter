@@ -1,6 +1,6 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { Leaderboard } from "../components";
+import { Leaderboard } from '../components';
 
 const objectSize = object => Object.values(object).length;
 

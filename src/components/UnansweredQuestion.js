@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Image,
   Button,
@@ -7,7 +7,7 @@ import {
   Divider,
   Segment,
   Icon
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
 const UnansweredQuestion = ({
   questionId: qid,
@@ -20,33 +20,33 @@ const UnansweredQuestion = ({
   authedUser
 }) => {
   return (
-    <Container textAlign="center">
-      <Image size="tiny" avatar src={avatarURL} alt={author} />
+    <Container textAlign='center'>
+      <Image size='tiny' avatar src={avatarURL} alt={author} />
       <Header>
-        {isAuthor ? "You asked" : `${author} asks`}
+        {isAuthor ? 'You asked' : `${author} asks`}
         <br />
         Would you rather:
       </Header>
       <Segment basic>
         <Button
-          color="green"
+          color='green'
           onClick={() =>
-            answerQuestion({ authedUser, qid, answer: "optionOne" })
+            answerQuestion({ authedUser, qid, answer: 'optionOne' })
           }
         >
           {optionOneText}
         </Button>
         <Divider horizontal>or</Divider>
         <Button
-          color="blue"
+          color='blue'
           onClick={() =>
-            answerQuestion({ authedUser, qid, answer: "optionTwo" })
+            answerQuestion({ authedUser, qid, answer: 'optionTwo' })
           }
         >
           {optionTwoText}
         </Button>
       </Segment>
-      <Icon name="question" size="huge" />
+      <Icon name='question' size='huge' />
     </Container>
   );
 };

@@ -1,6 +1,6 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { AnsweredQuestion } from "../components";
+import { AnsweredQuestion } from '../components';
 
 const mapStateToProps = (
   { questions, users },

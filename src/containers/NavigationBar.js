@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { NavigationBar } from "../components";
-import { logoutUser } from "../redux/actions/authedUser";
+import { NavigationBar } from '../components';
+import { logoutUser } from '../redux/actions/authedUser';
 
 const mapStateToProps = ({ users, authedUser }) => ({
   isAuthenticated: authedUser !== null,
@@ -10,6 +10,6 @@ const mapStateToProps = ({ users, authedUser }) => ({
 
 const mapDispatchToProps = {
   logoutUser
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);

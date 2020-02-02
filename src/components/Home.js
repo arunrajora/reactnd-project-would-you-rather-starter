@@ -1,6 +1,6 @@
-import React from "react";
-import { Tab } from "semantic-ui-react";
-import QuestionList from "./QuestionList";
+import React from 'react';
+import { Tab } from 'semantic-ui-react';
+import QuestionList from './QuestionList';
 
 const Home = ({ answeredQuestions, unansweredQuestions, history }) => {
   return (
@@ -8,24 +8,24 @@ const Home = ({ answeredQuestions, unansweredQuestions, history }) => {
       renderActiveOnly
       panes={[
         {
-          menuItem: "Unanswered Questions",
+          menuItem: 'Unanswered Questions',
           render: () => (
             <Tab.Pane attached={false}>
               <QuestionList
                 questions={unansweredQuestions}
-                selectedTab="unanswered"
+                selectedTab='unanswered'
                 history={history}
               />
             </Tab.Pane>
           )
         },
         {
-          menuItem: "Answered Questions",
+          menuItem: 'Answered Questions',
           render: () => (
             <Tab.Pane attached={false}>
               <QuestionList
                 questions={answeredQuestions}
-                selectedTab="answered"
+                selectedTab='answered'
                 history={history}
               />
             </Tab.Pane>

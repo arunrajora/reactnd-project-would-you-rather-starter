@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import Login from "../components/Login";
-import { authenticateUser} from "../redux/actions/authedUser";
+import Login from '../components/Login';
+import { authenticateUser } from '../redux/actions/authedUser';
 
 const mapStateToProps = ({ users, authedUser }) => ({
   users: Object.values(users).map(({ id, name, avatarURL }) => ({
@@ -12,6 +12,6 @@ const mapStateToProps = ({ users, authedUser }) => ({
   isAuthenticated: authedUser !== null
 });
 
-const mapDispatchToProps = {authenticateUser};
+const mapDispatchToProps = { authenticateUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

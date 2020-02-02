@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Image,
   Header,
@@ -7,13 +7,13 @@ import {
   Segment,
   Progress,
   Label
-} from "semantic-ui-react";
+} from 'semantic-ui-react';
 
 const calculatePercentage = (firstVotes, secondVotes) =>
   Math.round((firstVotes / (firstVotes + secondVotes)) * 100);
 
 const YourChoice = () => (
-  <Label size="mini" color="violet" content="Your choice" icon="star" />
+  <Label size='mini' color='violet' content='Your choice' icon='star' />
 );
 
 const QuestionAnsweredOption = ({
@@ -25,7 +25,7 @@ const QuestionAnsweredOption = ({
   color
 }) => (
   <>
-    <Label color={color} size="large" content={text} />
+    <Label color={color} size='large' content={text} />
     <Progress
       color={color}
       label={`${votes} out of ${totalVotes} votes`}
@@ -46,26 +46,26 @@ const AnsweredQuestion = ({
   optiontwoVotes,
   optionSelected
 }) => (
-  <Container textAlign="center">
-    <Image size="tiny" avatar src={avatarURL} alt={author} />
-    <Header>{isAuthor ? "You" : author} asked Would You Rather:</Header>
+  <Container textAlign='center'>
+    <Image size='tiny' avatar src={avatarURL} alt={author} />
+    <Header>{isAuthor ? 'You' : author} asked Would You Rather:</Header>
     <Segment basic>
       <QuestionAnsweredOption
-        color="green"
+        color='green'
         text={optionOneText}
         percentage={calculatePercentage(optionOneVotes, optiontwoVotes)}
         votes={optionOneVotes}
         totalVotes={optionOneVotes + optiontwoVotes}
-        optionSelected={optionSelected === "optionOne"}
+        optionSelected={optionSelected === 'optionOne'}
       />
       <Divider horizontal>or</Divider>
       <QuestionAnsweredOption
-        color="blue"
+        color='blue'
         text={optionTwoText}
         percentage={100.0 - calculatePercentage(optionOneVotes, optiontwoVotes)}
         votes={optiontwoVotes}
         totalVotes={optionOneVotes + optiontwoVotes}
-        optionSelected={optionSelected === "optionTwo"}
+        optionSelected={optionSelected === 'optionTwo'}
       />
     </Segment>
   </Container>

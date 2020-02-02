@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { UnansweredQuestion } from "../components";
-import { answerQuestion } from "../redux/actions/shared";
+import { UnansweredQuestion } from '../components';
+import { answerQuestion } from '../redux/actions/shared';
 
 const mapStateToProps = (
   { questions, users, authedUser, isAuthor },

@@ -3,7 +3,7 @@ import {
   _getQuestions,
   _saveQuestion,
   _saveQuestionAnswer
-} from "./_DATA";
+} from './_DATA';
 
 export const getUsers = () => _getUsers();
 

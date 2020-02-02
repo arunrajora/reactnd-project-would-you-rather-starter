@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, Table } from "semantic-ui-react";
+import React from 'react';
+import { Image, Table } from 'semantic-ui-react';
 
 const Leaderboard = ({ users, authedUser }) => (
   <div>
@@ -14,14 +14,14 @@ const Leaderboard = ({ users, authedUser }) => (
             <Table.Row key={id} active={authedUser === id}>
               <Table.Cell>{index + 1}.</Table.Cell>
               <Table.Cell>
-                <Image circular size="tiny" src={avatarURL} alt={name} />
+                <Image circular size='tiny' src={avatarURL} alt={name} />
               </Table.Cell>
               <Table.Cell>{name}</Table.Cell>
               <Table.Cell>
-                {questionsAnswered} Answer{questionsAnswered > 1 && "s"}
+                {questionsAnswered} Answer{questionsAnswered > 1 && 's'}
               </Table.Cell>
               <Table.Cell>
-                {questionsCreated} Question{questionsCreated > 1 && "s"}
+                {questionsCreated} Question{questionsCreated > 1 && 's'}
               </Table.Cell>
               <Table.Cell>
                 Score: {questionsAnswered + questionsCreated}

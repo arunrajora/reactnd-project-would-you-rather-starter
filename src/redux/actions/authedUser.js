@@ -1,4 +1,4 @@
-import { AUTHENTCATE_USER, LOGOUT_USER } from "../actionsTypes";
+import { AUTHENTCATE_USER, LOGOUT_USER } from '../actionsTypes';
 
 export const authenticateUser = id => ({
   id,

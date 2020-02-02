@@ -1,6 +1,6 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { Home } from "../components";
+import { Home } from '../components';
 
 const sortQuestionsByTimestamp = questions =>
   questions.sort((a, b) => b.timestamp - a.timestamp);
@@ -19,7 +19,7 @@ const formatQuestions = (questions, users, authedUser) =>
     timestamp,
     optionOneText: optionOne.text,
     optionTwoText: optionTwo.text,
-    authorName: author === authedUser ? "You" : users[author].name,
+    authorName: author === authedUser ? 'You' : users[author].name,
     avatarURL: users[author].avatarURL
   }));
 

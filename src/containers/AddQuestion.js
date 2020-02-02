@@ -1,9 +1,9 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { AddQuestion } from "../components";
-import { handleCreateQuestion } from "../redux/actions/shared";
+import { AddQuestion } from '../components';
+import { handleCreateQuestion } from '../redux/actions/shared';
 
-const mapStateToProps = ({authedUser}) => ({authedUser});
+const mapStateToProps = ({ authedUser }) => ({ authedUser });
 
 const mapDispatchToProps = { handleCreateQuestion };
 

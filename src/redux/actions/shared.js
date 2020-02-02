@@ -1,18 +1,18 @@
-import { showLoading, hideLoading } from "react-redux-loading-bar";
-import { authenticateUser } from "./authedUser";
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
+import { authenticateUser } from './authedUser';
 
 import {
   LOAD_USERS,
   LOAD_QUESTIONS,
   SAVE_QUESTION,
   SAVE_ANSWER
-} from "../actionsTypes";
+} from '../actionsTypes';
 import {
   getUsers,
   getQuestions,
   saveQuestion,
   saveQuestionAnswer
-} from "../../API";
+} from '../../API';
 
 const loadUsers = users => ({
   users,
