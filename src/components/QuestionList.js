@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Image } from "semantic-ui-react";
+import { Card, Image, Label, Segment, Divider, Grid } from "semantic-ui-react";
 import moment from "moment";
 
 const QuestionList = ({ questions, history, selectedTab }) => (
@@ -13,13 +13,31 @@ const QuestionList = ({ questions, history, selectedTab }) => (
         optionTwoText,
         timestamp
       }) => (
-        <Card key={id} onClick={() => history.push(`questions/${id}`)}>
+        <Card raised key={id} onClick={() => history.push(`questions/${id}`)}>
           <Card.Content>
             <Image bordered rounded floated="left" avatar src={avatarURL} />
             <Card.Header>{authorName}</Card.Header>
             <Card.Meta>{moment(timestamp).fromNow()}</Card.Meta>
             <Card.Description>
-              Would You Rather <b>{optionOneText}</b> or <b>{optionTwoText}</b>?
+              <Segment large padded basic>
+                <Grid columns={2} stackable textAlign="center">
+                  <Divider vertical>Or</Divider>
+
+                  <Grid.Row verticalAlign="middle">
+                    <Grid.Column>
+                      <Label.Group size="large">
+                        <Label color="green">{optionOneText}</Label>
+                      </Label.Group>
+                    </Grid.Column>
+
+                    <Grid.Column>
+                      <Label.Group size="large">
+                        <Label color="blue">{optionTwoText}</Label>
+                      </Label.Group>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Segment>
             </Card.Description>
           </Card.Content>
         </Card>
