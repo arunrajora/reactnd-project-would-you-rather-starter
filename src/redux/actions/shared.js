@@ -1,5 +1,4 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import { authenticateUser } from './authedUser';
 
 import {
   LOAD_USERS,
