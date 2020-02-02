@@ -27,7 +27,7 @@ const UnansweredQuestion = ({
         <br />
         Would you rather:
       </Header>
-      <Segment>
+      <Segment basic>
         <Button
           color="green"
           onClick={() =>

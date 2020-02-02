@@ -49,7 +49,7 @@ const AnsweredQuestion = ({
   <Container textAlign="center">
     <Image size="tiny" avatar src={avatarURL} alt={author} />
     <Header>{isAuthor ? "You" : author} asked Would You Rather:</Header>
-    <Segment>
+    <Segment basic>
       <QuestionAnsweredOption
         color="green"
         text={optionOneText}
