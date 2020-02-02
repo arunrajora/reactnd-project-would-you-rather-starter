@@ -19,7 +19,7 @@ const QuestionList = ({ questions, history, selectedTab }) => (
             <Card.Header>{authorName}</Card.Header>
             <Card.Meta>{moment(timestamp).fromNow()}</Card.Meta>
             <Card.Description>
-              <Segment large padded basic>
+              <Segment padded basic>
                 <Grid columns={2} stackable textAlign="center">
                   <Divider vertical>Or</Divider>
 
