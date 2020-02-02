@@ -41,7 +41,6 @@ export const loadInitialData = () => dispatch => {
       dispatch(loadUsers(users));
       dispatch(loadQuestions(questions));
       dispatch(hideLoading());
-      dispatch(authenticateUser("sarahedo"));
     }
   );
 };
