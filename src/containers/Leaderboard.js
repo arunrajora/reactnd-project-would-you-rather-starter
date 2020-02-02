@@ -2,9 +2,10 @@ import { connect } from "react-redux";
 
 import { Leaderboard } from "../components";
 
-const objectSize = (object) => Object.values(object).length;
+const objectSize = object => Object.values(object).length;
 
-const mapStateToProps = ({ users }) => ({
+const mapStateToProps = ({ users, authedUser }) => ({
+  authedUser,
   users: Object.values(users)
     .sort(
       (a, b) =>

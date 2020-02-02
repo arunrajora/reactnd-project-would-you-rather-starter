@@ -1,7 +1,18 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
+import { authenticateUser } from "./authedUser";
 
-import { LOAD_USERS, LOAD_QUESTIONS, SAVE_QUESTION, SAVE_ANSWER } from "../actionsTypes";
-import { getUsers, getQuestions, saveQuestion, saveQuestionAnswer } from "../../API";
+import {
+  LOAD_USERS,
+  LOAD_QUESTIONS,
+  SAVE_QUESTION,
+  SAVE_ANSWER
+} from "../actionsTypes";
+import {
+  getUsers,
+  getQuestions,
+  saveQuestion,
+  saveQuestionAnswer
+} from "../../API";
 
 const loadUsers = users => ({
   users,
@@ -30,24 +41,31 @@ export const loadInitialData = () => dispatch => {
       dispatch(loadUsers(users));
       dispatch(loadQuestions(questions));
       dispatch(hideLoading());
+      dispatch(authenticateUser("sarahedo"));
     }
   );
 };
 
-export const handleCreateQuestion = ({optionOneText, optionTwoText, authedUser}) => dispatch => {
+export const handleCreateQuestion = ({
+  optionOneText,
+  optionTwoText,
+  authedUser
+}) => dispatch => {
   dispatch(showLoading());
-  return saveQuestion({optionOneText, optionTwoText, author: authedUser}).then((question) => {
+  return saveQuestion({
+    optionOneText,
+    optionTwoText,
+    author: authedUser
+  }).then(question => {
     dispatch(addQuestion(question));
     dispatch(hideLoading());
-  })
-}
+  });
+};
 
-export const answerQuestion = ({authedUser, qid, answer}) => dispatch => {
+export const answerQuestion = ({ authedUser, qid, answer }) => dispatch => {
   dispatch(showLoading());
-  return saveQuestionAnswer({authedUser, qid, answer}).then(
-    () => {
-      dispatch(addAnswer({authedUser, qid, answer}));
-      dispatch(hideLoading());
-    }
-  );
-}
+  return saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
+    dispatch(addAnswer({ authedUser, qid, answer }));
+    dispatch(hideLoading());
+  });
+};

@@ -1,36 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import {
+  Form,
+  Container,
+  Button,
+  Segment,
+  Divider,
+  Icon
+} from "semantic-ui-react";
 
 const AddQuestion = ({ authedUser, handleCreateQuestion, history }) => {
-  const [optionOneText, setOptionOneText] = useState('')
-  const [optionTwoText, setOptionTwoText] = useState('')
+  const [optionOneText, setOptionOneText] = useState("");
+  const [optionTwoText, setOptionTwoText] = useState("");
 
   return (
-    <form
-      onSubmit={event => {
-        event.preventDefault()
-        handleCreateQuestion({ optionOneText, optionTwoText, authedUser }).then(
-          () => history.push('/')
-        )
-      }}
-    >
-      <div>
+    <Container textAlign="center">
+      <Form
+        onSubmit={event => {
+          event.preventDefault();
+          handleCreateQuestion({
+            optionOneText,
+            optionTwoText,
+            authedUser
+          }).then(() => history.push("/"));
+        }}
+      >
         Would You Rather
-        <input
-          type='text'
-          value={optionOneText}
-          onChange={({ target: { value } }) => setOptionOneText(value)}
-        />
-        or
-        <input
-          type='text'
-          value={optionTwoText}
-          onChange={({ target: { value } }) => setOptionTwoText(value)}
-        />
-        ?
-        <input type='submit' />
-      </div>
-    </form>
-  )
-}
+        <Segment>
+          <Form.Input
+            placeholder="first thing"
+            value={optionOneText}
+            onChange={({ target: { value } }) => setOptionOneText(value)}
+          />
+          <Divider horizontal>or</Divider>
+          <Form.Input
+            placeholder="second thing"
+            value={optionTwoText}
+            onChange={({ target: { value } }) => setOptionTwoText(value)}
+          />
+        </Segment>
+        <Button type="submit" positive size="large">
+          Ask
+        </Button>
+      </Form>
+    </Container>
+  );
+};
 
-export default AddQuestion
+export default AddQuestion;

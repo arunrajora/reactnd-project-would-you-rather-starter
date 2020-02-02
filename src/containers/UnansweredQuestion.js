@@ -3,13 +3,24 @@ import { connect } from "react-redux";
 import { UnansweredQuestion } from "../components";
 import { answerQuestion } from "../redux/actions/shared";
 
-const mapStateToProps = ({questions, users, authedUser}, {questionId: qid}) => ({
-     authedUser,
-     author: users[questions[qid].author].name,
-     avatarURL: users[questions[qid].author].avatarURL,
-      optionOneText: questions[qid].optionOne.text,
-       optionTwoText: questions[qid].optionTwo.text
-});
+const mapStateToProps = (
+  { questions, users, authedUser, isAuthor },
+  { questionId: qid }
+) => {
+  const question = questions[qid];
+  if (!questions[qid]) {
+    return {};
+  }
+  const { author } = question;
+  return {
+    authedUser,
+    isAuthor: authedUser === author,
+    author: users[author].name,
+    avatarURL: users[author].avatarURL,
+    optionOneText: question.optionOne.text,
+    optionTwoText: question.optionTwo.text
+  };
+};
 
 const mapDispatchToProps = { answerQuestion };
 

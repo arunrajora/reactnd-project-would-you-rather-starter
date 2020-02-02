@@ -1,28 +1,39 @@
-import React, { useState } from 'react'
+import React from "react";
+import { Tab } from "semantic-ui-react";
+import QuestionList from "./QuestionList";
 
 const Home = ({ answeredQuestions, unansweredQuestions, history }) => {
-  const [selectedTab, changeTab] = useState('unanswered')
   return (
-    <div>
-      <button onClick={() => changeTab('unanswered')}>
-        Unanswered Questions
-      </button>
-      <button onClick={() => changeTab('answered')}>Answered Questions</button>
-      {(selectedTab === 'unanswered'
-        ? unansweredQuestions
-        : answeredQuestions
-      ).map(({ id, authorName, avatarURL, optionOneText, optionTwoText }) => (
-        <div key={id} onClick={() => history.push(`questions/${id}`)}>
-          <img src={avatarURL} alt={authorName} />
-          {authorName}{' '}
-          {selectedTab === 'answered' || authorName === 'You'
-            ? 'asked'
-            : 'asks'}{' '}
-          Would You Rather <b>{optionOneText}</b> or <b>{optionTwoText}</b>?
-        </div>
-      ))}
-    </div>
-  )
-}
+    <Tab
+      renderActiveOnly
+      panes={[
+        {
+          menuItem: "Unanswered Questions",
+          render: () => (
+            <Tab.Pane attached={false}>
+              <QuestionList
+                questions={unansweredQuestions}
+                selectedTab="unanswered"
+                history={history}
+              />
+            </Tab.Pane>
+          )
+        },
+        {
+          menuItem: "Answered Questions",
+          render: () => (
+            <Tab.Pane attached={false}>
+              <QuestionList
+                questions={answeredQuestions}
+                selectedTab="answered"
+                history={history}
+              />
+            </Tab.Pane>
+          )
+        }
+      ]}
+    />
+  );
+};
 
-export default Home
+export default Home;

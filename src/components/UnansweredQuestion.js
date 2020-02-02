@@ -1,4 +1,13 @@
-import React from 'react'
+import React from "react";
+import {
+  Image,
+  Button,
+  Header,
+  Container,
+  Divider,
+  Segment,
+  Icon
+} from "semantic-ui-react";
 
 const UnansweredQuestion = ({
   questionId: qid,
@@ -7,26 +16,39 @@ const UnansweredQuestion = ({
   optionOneText,
   optionTwoText,
   answerQuestion,
+  isAuthor,
   authedUser
 }) => {
   return (
-    <div>
-      <img src={avatarURL} alt={author} />
-      {author === authedUser ? 'You' : author}{' '}
-      {author === authedUser ? 'asked' : 'asks'} Would you rather:
-      <button
-        onClick={() => answerQuestion({ authedUser, qid, answer: 'optionOne' })}
-      >
-        {optionOneText}
-      </button>
-      or
-      <button
-        onClick={() => answerQuestion({ authedUser, qid, answer: 'optionTwo' })}
-      >
-        {optionTwoText}
-      </button>
-    </div>
-  )
-}
+    <Container textAlign="center">
+      <Image size="tiny" avatar src={avatarURL} alt={author} />
+      <Header>
+        {isAuthor ? "You asked" : `${author} asks`}
+        <br />
+        Would you rather:
+      </Header>
+      <Segment>
+        <Button
+          color="green"
+          onClick={() =>
+            answerQuestion({ authedUser, qid, answer: "optionOne" })
+          }
+        >
+          {optionOneText}
+        </Button>
+        <Divider horizontal>or</Divider>
+        <Button
+          color="blue"
+          onClick={() =>
+            answerQuestion({ authedUser, qid, answer: "optionTwo" })
+          }
+        >
+          {optionTwoText}
+        </Button>
+      </Segment>
+      <Icon name="question" size="huge" />
+    </Container>
+  );
+};
 
-export default UnansweredQuestion
+export default UnansweredQuestion;

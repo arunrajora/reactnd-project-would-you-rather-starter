@@ -8,7 +8,7 @@ import { NotFound } from "./components";
 
 import { loadInitialData } from "./redux/actions/shared";
 
-import "./App.css";
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const dispatch = useDispatch();

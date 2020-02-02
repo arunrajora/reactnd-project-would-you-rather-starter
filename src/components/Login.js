@@ -1,23 +1,26 @@
 import React from "react";
 import { Redirect } from "react-router";
+import { Container, Header, Card } from "semantic-ui-react";
 
 const Login = ({ users, authenticateUser, isAuthenticated, location }) =>
   isAuthenticated ? (
     <Redirect to={location.state || "/"} />
   ) : (
-    <div>
-      <h2>Login</h2>
-      {users.map(({ id, name, avatarURL }) => (
-        <button
-          key={id}
-          onClick={() => {
-            authenticateUser(id);
-          }}
-        >
-          {name}
-        </button>
-      ))}
-    </div>
+    <Container>
+      <Header as="h2">Login</Header>
+      <p>Select user:</p>
+      <Card.Group centered stackable>
+        {users.map(({ id, name, avatarURL }) => (
+          <Card
+            raised
+            key={id}
+            onClick={() => authenticateUser(id)}
+            header={name}
+            image={avatarURL}
+          />
+        ))}
+      </Card.Group>
+    </Container>
   );
 
 export default Login;

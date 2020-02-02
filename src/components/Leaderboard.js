@@ -1,22 +1,36 @@
 import React from "react";
+import { Image, Table } from "semantic-ui-react";
 
-const Leaderboard = ({ users }) => (
+const Leaderboard = ({ users, authedUser }) => (
   <div>
-  <h2>Leaderboard</h2>
-  <table>
-  <tbody>
-    {users.map(({name, id, avatarURL, questionsAnswered, questionsCreated}, index) => (
-      <tr key={id}>
-        <td>{index+1}.</td>
-        <td><img src={avatarURL} alt={name}/></td>
-        <td>{name}</td>
-        <td>{questionsAnswered} Answer{questionsAnswered > 1 && "s"}</td>
-        <td>{questionsCreated} Question{questionsCreated > 1 && "s"}</td>
-        <td>Score: {questionsAnswered + questionsCreated}</td>
-      </tr>
-      ))}
-    </tbody>
-  </table>
+    <h2>Leaderboard</h2>
+    <Table>
+      <Table.Body>
+        {users.map(
+          (
+            { name, id, avatarURL, questionsAnswered, questionsCreated },
+            index
+          ) => (
+            <Table.Row key={id} active={authedUser === id}>
+              <Table.Cell>{index + 1}.</Table.Cell>
+              <Table.Cell>
+                <Image circular size="tiny" src={avatarURL} alt={name} />
+              </Table.Cell>
+              <Table.Cell>{name}</Table.Cell>
+              <Table.Cell>
+                {questionsAnswered} Answer{questionsAnswered > 1 && "s"}
+              </Table.Cell>
+              <Table.Cell>
+                {questionsCreated} Question{questionsCreated > 1 && "s"}
+              </Table.Cell>
+              <Table.Cell>
+                Score: {questionsAnswered + questionsCreated}
+              </Table.Cell>
+            </Table.Row>
+          )
+        )}
+      </Table.Body>
+    </Table>
   </div>
 );
 
